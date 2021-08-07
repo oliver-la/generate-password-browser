@@ -1,6 +1,6 @@
 {
   "name": "generate-password-browser",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Easy library for generating unique passwords in browsers.",
   "main": "main.js",
   "types": "src/generate.d.ts",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/xama5/generate-password-browser"
+    "url": "https://github.com/oliver-la/generate-password-browser"
   },
   "keywords": [
     "generate",
@@ -21,21 +21,21 @@
     "browser",
     "angular"
   ],
-  "author": "https://github.com/xama5",
+  "author": "https://github.com/oliver-la",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/xama5/generate-password-browser/issues"
+    "url": "https://github.com/oliver-la/generate-password-browser/issues"
   },
-  "homepage": "https://github.com/xama5/generate-password-browser",
+  "homepage": "https://github.com/oliver-la/generate-password-browser",
   "dependencies": {
     "randombytes": "^2.0.5"
   },
   "devDependencies": {
     "chai": "^1.10.0",
-    "codecov": "^1.0.1",
-    "eslint": "^2.13.1",
-    "jscover": "^1.0.0",
-    "mocha": "^2.0.1",
+    "codecov": "^3.8.3",
+    "eslint": "^6.5.1",
+    "jscover": "^0.1.1",
+    "mocha": "^7.0.0",
     "mocha-lcov-reporter": "^1.2.0",
     "underscore": "^1.7.0"
   }

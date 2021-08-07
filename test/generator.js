@@ -87,10 +87,47 @@ describe('generate-password-browser', function() {
 				assert.equal(passwords.length, amountToGenerate);
 			});
 
+			it('should generate strict random sequence that has has no lowercase letter', function () {
+				var passwords = generator.generateMultiple(amountToGenerate, { length: 10, strict: true, lowercase: false });
+
+				passwords.forEach(function (password) {
+					assert.notMatch(password, /[a-z]/, 'password has no lowercase letters');
+				});
+				assert.equal(passwords.length, amountToGenerate);
+			});
+
+			it('should generate strict random sequence that has strictly at least one lowercase, one symbol, and one uppercase letter', function () {
+				var passwords = generator.generateMultiple(amountToGenerate, { length: 10, strict: true, uppercase: true, lowercase: true, symbols: true, numbers: true });
+
+				passwords.forEach(function (password) {
+					assert.match(password, /[a-z]/, 'password has a lowercase letter');
+					assert.match(password, /[A-Z]/, 'password has a uppercase letter');
+					assert.match(password, /[!@#$%^&*()+_\-=}{[\]|:;"/?.><,`~]/, 'password has a symbol');
+					assert.match(password, /[0-9]/, 'password has a number');
+				});
+				assert.equal(passwords.length, amountToGenerate);
+			});
+
+			it('should respect explicit list of symbols when provided', function() {
+				var passwords = generator.generateMultiple(amountToGenerate, { length: 10, strict: true, symbols: '!', lowercase: true });
+
+				passwords.forEach(function (password) {
+					assert.notMatch(password, /[@#$%^&*()+_\-=}{[\]|:;"/?.><,`~]/, 'password does not have default symbols');
+					assert.match(password, /[!]/, 'password has provided symbol');
+				});
+				assert.equal(passwords.length, amountToGenerate);
+			});
+
 			it('should throw an error if rules don\'t correlate with length', function() {
 				assert.throws(function() {
 					generator.generate({length: 2, strict: true, symbols: true, numbers: true});
 				}, TypeError, 'Length must correlate with strict guidelines');
+			});
+
+			it('should throw an error if no rules are applied', function() {
+				assert.throws(function() {
+					generator.generate({ length: 10,  uppercase: false, lowercase: false, symbols: false, numbers: false });
+				}, TypeError, 'At least one rule for pools must be true');
 			});
 
 			it('should generate short strict passwords without stack overflow', function(){
