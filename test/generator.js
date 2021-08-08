@@ -1,8 +1,7 @@
 var assert = require('chai').assert,
 	_ = require('underscore');
 
-// We use a different require path for code coverage.
-var generator = process.env.JSCOV ? require('../src-cov/generate') : require('../main');
+var generator = require('../main');
 
 describe('generate-password-browser', function() {
 	describe('generate()', function() {

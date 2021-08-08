@@ -3,7 +3,9 @@ if (typeof(window) !== 'undefined') {
 	window.global = window.global || window;
 }
 
-var randomBytes = require('randombytes');
+var crypto = {
+	randomBytes: require('randombytes')
+};
 
 var self = module.exports;
 
@@ -27,15 +29,9 @@ var getNextRandomValue = function() {
 // Generates a random number
 var randomNumber = function(max) {
 	// gives a number between 0 (inclusive) and max (exclusive)
-<<<<<<< HEAD
-	var rand = randomBytes(1)[0];
-	while (rand >= 256 - (256 % max)) {
-		rand = randomBytes(1)[0];
-=======
 	var rand = getNextRandomValue();
 	while (rand >= 256 - (256 % max)) {
 		rand = getNextRandomValue();
->>>>>>> upstream/master
 	}
 	return rand % max;
 };
