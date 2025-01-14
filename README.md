@@ -1,15 +1,10 @@
-# generate-password-browser (w/ Angular Support) [![Build Status](https://api.travis-ci.org/xama5/generate-password-browser.svg?branch=master)](https://travis-ci.org/xama5/generate-password-browser)
+# generate-password-browser
 
 [![Generate-Password NPM](https://nodei.co/npm/generate-password-browser.png?downloads=true&downloadRank=true)](http://npmjs.org/package/generate-password-browser)
 
 
 Generate Password is a (relatively) extensive library for generating random and unique passwords in browsers.
-This is a fork of the original generate-password package https://github.com/brendanashworth/generate-password, but unfortunately it doesn't and [won't](https://github.com/brendanashworth/generate-password/pull/21) support browsers.
-Confirmed to be working with Angular 4, 5 and 6 in these browsers:
-
-- Google Chrome 60.0.3112.113
-- Firefox 55.0.3
-- Internet Explorer 11
+This is a fork of the original generate-password package https://github.com/brendanashworth/generate-password, with added support for browsers.
 
 ## Install
 
